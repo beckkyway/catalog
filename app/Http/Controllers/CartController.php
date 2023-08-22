@@ -10,6 +10,7 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
+    
     // сделать проверку куков существуют ли они
     public function cart()
     {
