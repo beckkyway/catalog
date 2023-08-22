@@ -10,9 +10,9 @@
     <div class="container">
         @include('components.cart.cartproduct')
     </div>
+    
 @endsection
 
-@section("js")
+@section('js')
     @vite(['resources/js/cart.js'])
 @endsection
-

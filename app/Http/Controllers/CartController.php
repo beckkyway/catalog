@@ -10,21 +10,31 @@ use App\Models\Product;
 
 class CartController extends Controller
 {
-    
+
     // сделать проверку куков существуют ли они
     public function cart()
     {
         if (isset($_COOKIE['cart'])) {
             $cartItems = json_decode($_COOKIE['cart'], true);
-            $product = Product::whereIn('id', $cartItems)->get();
-
-            // dd($product);
+            $productIds = array_keys($cartItems);
+            $products = Product::whereIn('id', $productIds)->get();
+            $cartItemQuantities = [];
+    
+            foreach ($products as $product) {
+                if (isset($cartItems[$product->id])) {
+                    $product->quantity = $cartItems[$product->id];
+                    $cartItemQuantities[$product->id] = $cartItems[$product->id];
+                } else {
+                    $cartItemQuantities[$product->id] = 0;
+                }
+            }
         } else {
             dd("товара нет");
         }
-
+    
         return view('cart', [
-            'product' => $product
+            'product' => $products,
+            'quantities' => $cartItemQuantities
         ]);
     }
 }
