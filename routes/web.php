@@ -24,3 +24,6 @@ Route::get('catalog', [CatalogController::class, 'page']);
 Route::get('catalog/add-item/{id}', [CatalogController::class, 'addItem']);
 
 Route::get('cart', [CartController::class, 'cart']);
+
+Route::get('catalog/remove-item/{id}', [CatalogController::class, 'removeItem']);
+

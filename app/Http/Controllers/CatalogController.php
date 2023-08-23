@@ -12,7 +12,7 @@ class CatalogController extends Controller
 {
     public function page()
     {
-        $model = Product::orderBy('price')->get();
+        $model = Product::all();
 
         return view('catalog', [
             'model' => $model
@@ -26,7 +26,6 @@ class CatalogController extends Controller
                 'error' => "Такого товара нет"
             ], 400);
         }
-
         $items = json_decode($_COOKIE['cart'] ?? "{}", true);
 
         if (isset($items[$id])) {
@@ -35,14 +34,14 @@ class CatalogController extends Controller
             $items[$id] = 1;
         }
 
-        $jsonString = json_encode($items);
-        setcookie('cart', $jsonString, time() + 3600);
-        // $_COOKIE['cart'] = $jsonString;
-
         return response()->json([
             'count' => array_sum($items),
             'items' => $items,
             'item' => Product::find($id)->toArray(),
         ], 200);
     }
+
+        
+
+   
 }

@@ -5,12 +5,15 @@
             <div class="item__name">{{ $item->name }}</div>
             <div class="item__description">{{ $item->description }}</div>
             <div class="item__price">{{ $item->price }} RUB</div>
-            @if (isset($quantities[$product->first()->id]))
-                <p>Количество: {{ $quantities[$product->first()->id] }}</p>
+            @if (isset($quantities[$item->id]))
+                <p>Количество: {{ $quantities[$item->id] }}</p>
             @endif
             <button class="item__remove-btn" id="{{ $item->id }}">
-                оформить заказ
+                оформить отдельно
             </button>
         </div>
+        <button class="item__remove-btn" id="{{ $item->id }}">
+            оформить всё
+        </button>
     @endforeach
 </div>
