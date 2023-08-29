@@ -6,7 +6,8 @@
 @endsection
 
 @section('content')
-    <h1>Корзина</h1>
+    <h1 class="cart__title">Корзина</h1>
+    <button class="cart__btn">оформить заказ</button>
     <div class="container">
         @include('components.cart.cartproduct')
     </div>

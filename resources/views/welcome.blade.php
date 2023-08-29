@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<p>Welcome to Magazine VapeFurgon</p>
+<h1 data-content="Welcome to Magazine VapeFurgon" class="welcome__title">Welcome to Magazine VapeFurgon</h1>
 @endsection
 
 @section('js')

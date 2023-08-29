@@ -1,6 +1,11 @@
 @import "./app.scss";
 
 .catalog{
+
+    * {
+        text-align: center;
+    }
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
@@ -52,4 +57,7 @@
             color: #fff;
         }
     }
+}
+.assortiment__title{
+    text-align: center;
 }

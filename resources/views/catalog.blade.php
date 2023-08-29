@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <h1>Асортимент товаров</h1>
+    <h1 class="assortiment__title">Асортимент товаров</h1>
     <div class="container">
         @include('components.catalog.products')
     </div>

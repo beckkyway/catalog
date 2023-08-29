@@ -1,1 +1,23 @@
 @import "./app.scss";
+
+.welcome {
+    &__title {
+        margin-top: 20px;
+        text-align: center;
+        color: #0e77f1;
+        overflow: hidden;
+        transition: clip-path 275ms ease;
+        cursor: context-menu;
+        &:hover::before {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        &::before {
+            position: absolute;
+            content: attr(data-content);
+            color: #e7242d;
+            text-decoration: underline;
+            clip-path: polygon(0 0, 0 0, 0% 100%, 0 100%);
+            transition: clip-path 275ms ease;
+        }
+    }
+}
