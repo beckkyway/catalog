@@ -4,7 +4,16 @@
 }
 
 .header {
-    display: flex;
-    justify-content: space-around;
-}
+    
 
+    &__links {
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        font-size: 28px;
+    }
+}
+.head {
+    text-decoration: none;
+    color: inherit;
+}

@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-<p>This is my body content.</p>
+<p>Welcome to Magazine VapeFurgon</p>
 @endsection
 
 @section('js')

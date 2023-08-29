@@ -12,12 +12,14 @@
                 @endif
             </div>
             <div>
-                <button type="button" class="btn btn-info btn-increment" data-quantity="{{ $quantities[$item->id] ?? 0 }}" data-id="{{ $item->id }}">+</button>
-                <button type="button" class="btn btn-info btn-increment" data-quantity="{{ $quantities[$item->id] ?? 0 }}" data-id="{{ $item->id }}">-</button>
+                <button type="button" class="btn btn-info btn-increment" data-product_id="{{ $item->id }}">
+                    +
+                </button>
+                <button type="button" class="btn btn-info btn-decrement" data-product_id="{{ $item->id }}">
+                    -
+                </button>
             </div>
-            @if (isset($quantities[$item->id]))
-                <p>Количество: {{ $quantities[$item->id] }}</p>
-            @endif
+            <p data-count="{{$quantities[$item->id]}}" id="count{{ $item->id }}">Количество: {{ $quantities[$item->id] }}</p>
             <button class="item__remove-btn" id="{{ $item->id }}">
                 оформить отдельно
             </button>

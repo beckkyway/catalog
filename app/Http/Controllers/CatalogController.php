@@ -37,32 +37,28 @@ class CatalogController extends Controller
         return response()->json([
             'count' => array_sum($items),
             'items' => $items,
-            'item' => Product::find($id)->toArray(),
         ], 200);
     }
 
-    public function calculateItem($id, $operator = true)
+    public function calculateItem(int $product_id, string $operator)
     {
         $items = json_decode($_COOKIE['cart'] ?? "{}", true);
     
-        // Проверяем, есть ли товар в корзине
-        if (!isset($items[$id])) {
-            $items[$id] = 0;
+        if (isset($items[$product_id])) {
+            $items[$product_id] += $operator == "plus" ? 1 : -1;
+        } else {
+            if ($operator === "plus") {
+                $items[$product_id] = 1;
+            }
         }
     
-        // Если $operator равно true, увеличиваем количество товара на 1
-        // Если $operator равно false, уменьшаем количество товара на 1
-        $items[$id] += $operator ? 1 : -1;
-    
-        // Если количество товара меньше или равно 0, удаляем товар из корзины
-        if ($items[$id] <= 0) {
-            unset($items[$id]);
+        if ($items[$product_id] < 1) {
+            unset($items[$product_id]);
         }
     
-        // Сохраняем обновленный список товаров в куки
-        setcookie('cart', json_encode($items), time() + (86400 * 30), "/"); // Устанавливаем куки на 30 дней
-    
-        // Возвращаем обновленные данные о товаре
-        return response()->json(['items' => $items]);
+        return response()->json([
+            'success' => 1,
+            'items' => $items
+        ]);
     }
 }

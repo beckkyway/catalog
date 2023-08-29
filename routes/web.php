@@ -25,5 +25,5 @@ Route::get('catalog/add-item/{id}', [CatalogController::class, 'addItem']);
 
 Route::get('cart', [CartController::class, 'cart']);
 
-Route::get('catalog/calculateItem/{id}', [CatalogController::class, 'calculateItem']);
+Route::patch('catalog/calculate-item/{product_id}/{operator}', [CatalogController::class, 'calculateItem']);
 

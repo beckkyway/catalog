@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +16,14 @@
                 <a class="head" href="/">Home</a>
             </li>
             <li>
-                <a class="head" href="/catalog">Каталог</a>
+                <a class="head" href="/catalog">Catalog</a>
+            </li>
+            <li>
+                <a class="head" href="/cart">Корзина</a>
             </li>
             @section('sidebar')
             @show
         </ul>
-
-        <div class="header__cart">
-            <a href="/cart">Корзина</a>
-        </div>
     </div>
 
     <div class="container">
