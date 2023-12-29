@@ -27,3 +27,5 @@ Route::get('cart', [CartController::class, 'cart']);
 
 Route::patch('catalog/calculate-item/{product_id}/{operator}', [CatalogController::class, 'calculateItem']);
 
+Route::get('tg', 'App\Http\Controllers\TelegramController@me');
+Route::any('tg/send', 'App\Http\Controllers\TelegramController@sendMessage');

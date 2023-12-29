@@ -168,6 +168,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        // custom providers
+        WeStacks\TeleBot\Laravel\Providers\TeleBotServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +186,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+
+        //aliases telebot
+        'TeleBot' => WeStacks\TeleBot\Laravel\TeleBot::class,
     ])->toArray(),
 
 ];
