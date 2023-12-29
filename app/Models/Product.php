@@ -25,4 +25,9 @@ class Product extends Model
     {
         return $this->hasOne(Image::class, 'id', 'image_id');
     }
+
+    public function getPrice()
+    {
+        return $this->new_price ?? $this->price;
+    }
 }
