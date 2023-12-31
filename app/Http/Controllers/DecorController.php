@@ -8,8 +8,7 @@ use App\Services\CartService;
 
 use App\Models\Product;
 
-
-class CartController extends Controller
+class DecorController extends Controller
 {
     public CartService $service;
 
@@ -18,21 +17,13 @@ class CartController extends Controller
         $this->service = new CartService;
     }
 
-    // сделать проверку куков существуют ли они
-    public function cart()
+    public function decor(Request $request)
     {
-        if (!isset($_COOKIE['cart'])) {
-            dd("Товара нет");
-        }
-        
         $qua = $this->service->getQuantity();
-    
-        return view('cart', [
+        return view('decor', [
+            'allPrice' => $this->service->calculatePrice(),
             'product' => $qua['products'],
             'quantities' => $qua['quantities'],
-            'allPrice' => $this->service->calculatePrice(),
         ]);
     }
-
-
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DecorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::patch('catalog/calculate-item/{product_id}/{operator}', [CatalogControlle
 
 Route::get('tg', 'App\Http\Controllers\TelegramController@me');
 Route::any('tg/send', 'App\Http\Controllers\TelegramController@sendMessage');
+
+Route::any('decor', [DecorController::class,'decor']);

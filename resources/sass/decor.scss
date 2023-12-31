@@ -1,0 +1,9 @@
+@import "./app.scss";
+
+.section__decor {
+    .decor {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 80px;
+    }
+}

@@ -7,7 +7,9 @@
 
 @section('content')
     <h1 class="cart__title">Корзина</h1>
-    <button class="cart__btn">оформить заказ {{$allPrice}} ₽</button>
+    <button class="cart__btn">
+        <a href="/decor">оформить заказ {{$allPrice}} ₽</a>
+    </button>
     <div class="container">
         @include('components.cart.cartproduct')
     </div>
